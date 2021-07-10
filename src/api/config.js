@@ -1,2 +1,2 @@
-const API_URL = "https://animalec-server.herokuapp.com";
+const API_URL = "https://animalec-extra-server.herokuapp.com";
 export default API_URL;
