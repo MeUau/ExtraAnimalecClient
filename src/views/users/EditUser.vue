@@ -37,8 +37,6 @@
                 id="txtSponsorship"
                 class="form-control form-control-lg"
                 placeholder="valor do patrocínio"
-                cols="30"
-                rows="10"
                 v-model="user.sponsorship"
               ></textarea>
             </div>
