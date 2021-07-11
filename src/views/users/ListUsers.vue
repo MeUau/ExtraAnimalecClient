@@ -152,7 +152,10 @@ export default {
           <b>Nome:</b> ${user.name} <br>
           <b>Tipo de utilizador:</b> ${
             user.type === "admin" ? "Administrador" : "Utilizador normal"
-          } <br>
+          } <br>          
+          <strong>Expertize:</strong> ${user.expertize}
+          <strong>Sponsordhip:</strong> ${user.sponsorship}
+          <br />          
           <b>Data de registo:</b> ${this.formatDate(
             user.registration_date
           )} <br>

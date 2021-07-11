@@ -8,6 +8,7 @@
         <b-col cols="2"></b-col>
         <b-col cols="8">
           <form @submit.prevent="update">
+            <!-- nome -->
             <div class="form-group">
               <input
                 v-model="user.name"
@@ -18,18 +19,20 @@
                 required
               />
             </div>
+            <!-- data de nascimento -->
             <div class="form-group">
-            <input
-              v-model="user.birth_date"
-              type="date"
-              onmouseenter="(this.type='date')"
-              onmouseleave="(this.type='text')"
-              class="form-control form-control-lg"
-              id="txtBirthDate"
-              placeholder="escreve data de nascimento"
-              required
-            />
+              <input
+                v-model="user.birth_date"
+                type="date"
+                onmouseenter="(this.type='date')"
+                onmouseleave="(this.type='text')"
+                class="form-control form-control-lg"
+                id="txtBirthDate"
+                placeholder="escreve data de nascimento"
+                required
+              />
             </div>
+            <!-- resumo bibliografico -->
             <div class="form-group">
               <textarea
                 id="txtDescription"
@@ -41,6 +44,29 @@
                 required
               ></textarea>
             </div>
+            <!-- Sponsorship -->
+            <div class="form-group">
+              <textarea
+                id="txtSponsorship"
+                class="form-control form-control-lg"
+                placeholder="valor do patrocínio"
+                cols="30"
+                rows="10"
+                v-model="user.sponsorship"
+              ></textarea>
+            </div>
+            <!-- Expertize -->
+            <div class="form-group">
+              <textarea
+                id="txtExpertize"
+                class="form-control form-control-lg"
+                placeholder="qual a sua especialidade?"
+                cols="30"
+                rows="10"
+                v-model="user.expertize"
+              ></textarea>              
+            </div>
+            <!-- cidade -->
             <div class="form-group">
               <input
                 v-model="user.location.city"
@@ -51,6 +77,7 @@
                 required
               />
             </div>
+            <!-- pais -->
             <div class="form-group">
               <input
                 v-model="user.location.country"
@@ -61,7 +88,7 @@
                 required
               />
             </div>
-            
+            <!-- user e password -->
             <div class="form-group">
               <input
                 v-model="user.auth.password"

@@ -7,6 +7,7 @@
         <b-col cols="4"></b-col>
         <b-col cols="4">
           <form @submit.prevent="register">
+            <!-- nome -->
             <div class="form-group">
               <input
                 v-model="name"
@@ -18,6 +19,7 @@
                 required
               />
             </div>
+            <!-- nascimento -->
             <div class="form-group">
               <input
                 v-model="birth_date"
@@ -31,6 +33,7 @@
                 required
               />
             </div>
+            <!-- cidade -->
             <div class="form-group">
               <input
                 v-model="location.city"
@@ -41,6 +44,7 @@
                 required
               />
             </div>
+            <!-- pais -->
             <div class="form-group">
               <input
                 v-model="location.country"
@@ -51,6 +55,7 @@
                 required
               />
             </div>
+            <!-- user e password -->
             <div class="form-group">
               <input
                 v-model="auth.username"
@@ -117,6 +122,8 @@ export default {
       active: true,
       name: "",
       type: "user",
+      sponsorship: 0,
+      expertize: "",
       birth_date: "",
       description: ""
     };

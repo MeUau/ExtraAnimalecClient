@@ -1,13 +1,14 @@
 <template>
   <section class="page-section">
-     <b-container>
-      <HeaderPage title="Editar Utilizador"/>
-   
+    <b-container>
+      <HeaderPage title="Editar Utilizador" />
+
       <!--FORM-->
       <b-row>
         <b-col cols="2"></b-col>
         <b-col cols="8">
           <form @submit.prevent="update">
+            <!-- nome -->
             <div class="form-group">
               <input
                 v-model="user.name"
@@ -18,25 +19,54 @@
                 required
               />
             </div>
+            <!-- Tipo -->
             <div class="form-group">
-              <select id="sltType" class="form-control form-control-lg" v-model="user.type">
+              <select
+                id="sltType"
+                class="form-control form-control-lg"
+                v-model="user.type"
+              >
                 <option value>-- SELECIONA TIPO --</option>
                 <option value="admin">ADMINISTRADOR</option>
                 <option value="user">UTILIZADOR NORMAL</option>
               </select>
             </div>
+            <!-- Sponsorship -->
             <div class="form-group">
-            <input
-              v-model="user.birth_date"
-              type="date"
-              onmouseenter="(this.type='date')"
-              onmouseleave="(this.type='text')"
-              class="form-control form-control-lg"
-              id="txtBirthDate"
-              placeholder="escreve data de nascimento"
-              required
-            />
+              <textarea
+                id="txtSponsorship"
+                class="form-control form-control-lg"
+                placeholder="valor do patrocínio"
+                cols="30"
+                rows="10"
+                v-model="user.sponsorship"
+              ></textarea>
             </div>
+            <!-- Expertize -->
+            <div class="form-group">
+              <textarea
+                id="txtExpertize"
+                class="form-control form-control-lg"
+                placeholder="qual a sua especialidade?"
+                cols="30"
+                rows="10"
+                v-model="user.expertize"
+              ></textarea>
+            </div>
+            <!-- nascimento -->
+            <div class="form-group">
+              <input
+                v-model="user.birth_date"
+                type="date"
+                onmouseenter="(this.type='date')"
+                onmouseleave="(this.type='text')"
+                class="form-control form-control-lg"
+                id="txtBirthDate"
+                placeholder="escreve data de nascimento"
+                required
+              />
+            </div>
+            <!-- nota biografica -->
             <div class="form-group">
               <textarea
                 id="txtDescription"
@@ -48,6 +78,7 @@
                 required
               ></textarea>
             </div>
+            <!-- cidade -->
             <div class="form-group">
               <input
                 v-model="user.location.city"
@@ -58,6 +89,7 @@
                 required
               />
             </div>
+            <!-- pais -->
             <div class="form-group">
               <input
                 v-model="user.location.country"
@@ -68,6 +100,7 @@
                 required
               />
             </div>
+            <!-- pontos -->
             <div class="form-group">
               <input
                 v-model="user.gamification.points"
@@ -78,10 +111,10 @@
                 class="form-control form-control-lg"
                 id="txtPoints"
                 placeholder="escreve pontos"
-                
               />
             </div>
-              <div class="form-group">
+            <!-- escreve último nível de quiz completo -->
+            <div class="form-group">
               <input
                 v-model="user.gamification.quiz"
                 type="text"
@@ -91,10 +124,9 @@
                 class="form-control form-control-lg"
                 id="txtCountry"
                 placeholder="escreve último nível de quiz completo"
-                
               />
             </div>
-            
+            <!-- user e password -->
             <div class="form-group">
               <input
                 v-model="user.auth.username"
@@ -125,23 +157,25 @@
               />
             </div>
             <button type="submit" class="btn btn-outline-success btn-lg mr-2">
-              <i class="fas fa-edit"></i> ATUALIZAR</button>
+              <i class="fas fa-edit"></i> ATUALIZAR
+            </button>
             <router-link
-              :to="{name: 'listUsers'}"
+              :to="{ name: 'listUsers' }"
               tag="button"
               class="btn btn-outline-danger btn-lg"
-            ><i class="fas fa-window-close"></i> CANCELAR</router-link>
+              ><i class="fas fa-window-close"></i> CANCELAR</router-link
+            >
           </form>
         </b-col>
         <b-col cols="2"></b-col>
       </b-row>
-     </b-container>
+    </b-container>
   </section>
 </template>
 
 <script>
 import { EDIT_USER } from "@/store/users/user.constants";
-import HeaderPage from "@/components/HeaderPage.vue"
+import HeaderPage from "@/components/HeaderPage.vue";
 import router from "@/router";
 import { mapGetters } from "vuex";
 
@@ -162,12 +196,8 @@ export default {
     update() {
       this.$store.dispatch(`user/${EDIT_USER}`, this.$data.user).then(
         () => {
-          this.$alert(
-            this.getMessage,
-            "Utilizador atualizado!",
-            "success"
-          );
-          router.push({name: 'listUsers'});
+          this.$alert(this.getMessage, "Utilizador atualizado!", "success");
+          router.push({ name: "listUsers" });
         },
         err => {
           this.$alert(`${err.message}`, "Erro", "error");

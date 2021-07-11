@@ -8,6 +8,7 @@
         <b-col cols="2"></b-col>
         <b-col cols="8">
           <form @submit.prevent="add">
+            <!-- nome -->
             <div class="form-group">
               <input
                 v-model="name"
@@ -18,6 +19,7 @@
                 required
               />
             </div>
+            <!-- tipo -->
             <div class="form-group">
               <select
                 id="sltType"
@@ -30,6 +32,29 @@
                 <option value="user">UTILIZADOR NORMAL</option>
               </select>
             </div>
+            <!-- Sponsorship -->
+            <div class="form-group">
+              <textarea
+                id="txtSponsorship"
+                class="form-control form-control-lg"
+                placeholder="valor do patrocínio"
+                cols="30"
+                rows="10"
+                v-model="user.sponsorship"
+              ></textarea>
+            </div>
+            <!-- Expertize -->
+            <div class="form-group">
+              <textarea
+                id="txtExpertize"
+                class="form-control form-control-lg"
+                placeholder="qual a sua especialidade?"
+                cols="30"
+                rows="10"
+                v-model="user.expertize"
+              ></textarea>
+            </div>
+            <!-- nascimento -->
             <div class="form-group">
               <input
                 v-model="birth_date"
@@ -42,6 +67,7 @@
                 required
               />
             </div>
+            <!-- nota biografica -->
             <div class="form-group">
               <textarea
                 id="txtDescription"
@@ -52,6 +78,7 @@
                 v-model="description"
               ></textarea>
             </div>
+            <!-- cidade -->
             <div class="form-group">
               <input
                 v-model="location.city"
@@ -61,6 +88,7 @@
                 placeholder="escreve cidade"
               />
             </div>
+            <!-- pais -->
             <div class="form-group">
               <input
                 v-model="location.country"
@@ -70,6 +98,7 @@
                 placeholder="escreve país"
               />
             </div>
+            <!-- pontos -->
             <div class="form-group">
               <input
                 v-model="gamification.points"
@@ -82,6 +111,7 @@
                 placeholder="escreve pontos"
               />
             </div>
+            <!-- último nível de quiz completo -->
             <div class="form-group">
               <input
                 v-model="gamification.quiz"
@@ -94,6 +124,7 @@
                 placeholder="escreve último nível de quiz completo"
               />
             </div>
+            <!-- user e password -->
             <div class="form-group">
               <input
                 v-model="auth.username"
@@ -161,6 +192,8 @@ export default {
       active: true,
       name: "",
       type: "",
+      sponsorship: 0,
+      expertize: "",
       birth_date: "",
       description: ""
     };
