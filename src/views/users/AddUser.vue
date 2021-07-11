@@ -99,7 +99,7 @@
               <input
                 v-model="auth.username"
                 type="text"
-                value="ricardo.queiros@gmail.com"
+                value="1900415@estudante.uab.pt"
                 class="form-control form-control-lg"
                 id="txtEmail"
                 placeholder="escreve username"

@@ -1,11 +1,10 @@
 <template>
   <section class="page-section">
     <b-container>
-     <HeaderPage title="Gestão de Utilizadores"/>
-      
+     <HeaderPage title="Gestão de Utilizadores"/>      
       <!--MENU TOPO-->
       <b-row class="mb-4">
-        <b-col cols="1"></b-col>
+        <b-col cols="2"></b-col>
         <b-col>
           <router-link
             :to="{name:'addUser'}"
@@ -18,7 +17,7 @@
             class="btn btn-outline-info mr-2 mt-2"
           ><i class="fas fa-bars"></i> MENU PRINCIPAL</router-link>
         </b-col>
-        <b-col cols="1"></b-col>
+        <b-col cols="2"></b-col>
       </b-row>
 
       <!-- TABELA -->
@@ -95,8 +94,9 @@ export default {
       this.$store.dispatch(`user/${FETCH_USERS}`).then( 
         () => {
           this.users = this.getUsers;
-        }, err => {
-          this.$alert(`${err.message}`, 'Erro', 'error');
+        },
+        err => {
+          this.$alert(`${err.message}`, "Erro", "error");
         });
     },
     sort() {
@@ -139,7 +139,7 @@ export default {
     formatDate: d => 
     {
       const newDate = new Date(Date.parse(d))
-      return newDate.getFullYear() + "-" + (newDate.getMonth() + 1) + "-" + newDate.getDate() + " " + newDate.getHours() + ":" + newDate.getMinutes() + ":" + newDate.getSeconds()
+      return newDate.getFullYear() + "-" + (newDate.getMonth() + 1) + "-" + newDate.getUTCDate() 
     },
     removeUser(id) {
       this.$confirm(

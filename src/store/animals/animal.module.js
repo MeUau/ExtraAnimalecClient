@@ -17,7 +17,8 @@ const state = {
 
 const getters = {
   getAnimals: state => state.animals,
-  getAnimalsById: state => id => state.animals.find(animal => animal._id === id),
+  getAnimalsById: state => id =>
+    state.animals.find(animal => animal._id === id),
   getMessage: state => state.message,
   
 };

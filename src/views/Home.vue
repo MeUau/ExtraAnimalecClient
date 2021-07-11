@@ -169,12 +169,10 @@
           <div class="col-lg-4 mb-5 mb-lg-0">
             <h4 class="text-uppercase mb-4">Criadores</h4>
             <p class="lead mb-0">
-              <a href="mailto:ricardo.queiros@gmail.com" target="_blank"
-                >Ricardo Queirós</a
+              <a href="mailto:1900415@estudante.uab.pt" target="_blank"
+                >Estudante</a
               >
-              <br /><a href="mailto:filipeportela@iotech.pt" target="_blank"
-                >Filipe Portela</a
-              >
+              <br />
             </p>
           </div>
 
@@ -240,8 +238,8 @@ export default {
   name: "Home",
   data: function() {
     return {
-      name: "ricardo",
-      email: "ricardo.queiros@gmail.com",
+      name: "EStudante",
+      email: "1900415@estudante.uab.pt",
       subject: "teste",
       message: "isto é um teste!"
     };

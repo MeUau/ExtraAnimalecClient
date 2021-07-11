@@ -13,8 +13,11 @@
           >
             <i class="fas fa-plus-square"></i> ADICIONAR ANIMAL
           </router-link>
-          <router-link :to="{name:'admin'}" tag="button" class="btn btn-outline-info mr-2 mt-2">
-            <i class="fas fa-bars"></i> MENU PRINCIPAL
+          <router-link
+            :to="{ name: 'admin' }"
+            tag="button"
+            class="btn btn-outline-info mr-2 mt-2"
+          ><i class="fas fa-bars"></i> MENU PRINCIPAL
           </router-link>
         </b-col>
         <b-col cols="2"></b-col>
@@ -22,7 +25,7 @@
 
       <!--TABLE-->
       <b-row>
-        <b-col cols="2"></b-col>
+        <b-col cols="1"></b-col>
         <b-col>
           <table class="table table-striped">
             <thead class="thead-dark">
@@ -47,8 +50,7 @@
                     :to="{name:'editAnimal', params:{animalId: animal._id}}"
                     tag="button"
                     class="btn btn-outline-success mr-2 mt-2"
-                  >
-                    <i class="fas fa-edit"></i> EDITAR
+                  ><i class="fas fa-edit"></i> EDITAR
                   </router-link>
                   <button
                     @click="viewAnimal(animal._id)"
@@ -61,15 +63,14 @@
                     @click="removeAnimal(animal._id)"
                     type="button"
                     class="btn btn-outline-danger mr-2 mt-2"
-                  >
-                    <i class="fas fa-trash-alt"></i> REMOVER
+                  ><i class="fas fa-trash-alt"></i> REMOVER
                   </button>
                 </td>
               </tr>
             </tbody>
           </table>
         </b-col>
-        <b-col cols="2"></b-col>
+        <b-col cols="1"></b-col>
       </b-row>
     </b-container>
   </section>
@@ -117,7 +118,6 @@ export default {
 
     viewAnimal(id) {
       const animal = this.animals.find(animal => animal._id === id);
-
       this.$fire({
         title: animal.name,
         html: this.generateTemplate(animal),

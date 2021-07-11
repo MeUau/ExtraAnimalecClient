@@ -11,7 +11,7 @@
               <input
                 v-model="name"
                 type="text"
-                value="ricardo queiros"
+                value="Etudante"
                 class="form-control form-control-lg"
                 id="txtName"
                 placeholder="escreve o teu nome"
@@ -55,7 +55,7 @@
               <input
                 v-model="auth.username"
                 type="text"
-                value="ricardo.queiros@gmail.com"
+                value="1900415@estudante.uab.pt"
                 class="form-control form-control-lg"
                 id="txtEmail"
                 placeholder="escreve o teu username"
