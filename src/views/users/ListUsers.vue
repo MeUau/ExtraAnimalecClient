@@ -1,7 +1,7 @@
 <template>
   <section class="page-section">
     <b-container>
-      <HeaderPage title="Gestão de Utilizadores" />
+     <HeaderPage title="Gestão de Utilizadores"/>
       
       <!--MENU TOPO-->
       <b-row class="mb-4">

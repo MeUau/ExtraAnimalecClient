@@ -20,11 +20,7 @@
               />
             </div>
             <div class="form-group">
-              <select
-                id="sltGroup"
-                class="form-control form-control-lg"
-                v-model="group"
-              >
+              <select id="sltGroup" class="form-control form-control-lg" v-model="group" required>
                 <option value>-- SELECIONA GRUPO --</option>
                 <option value="anfibio">ANFÍBIO</option>
                 <option value="ave">AVE</option>
@@ -49,8 +45,8 @@
                 <input
                   v-model="level"
                   type="text"
-                  onmouseenter="(this.type='number')"
-                  onmouseleave="(this.type='text')"
+                   onmouseenter="(this.type='number')"
+                onmouseleave="(this.type='text')"
                   min="1"
                   max="5"
                   class="form-control form-control-lg"
@@ -89,14 +85,12 @@
               />
             </div>
             <button type="submit" class="btn btn-outline-success btn-lg mr-2">
-              <i class="fas fa-plus-square"></i> ADICIONAR
-            </button>
+              <i class="fas fa-plus-square"></i>  ADICIONAR</button>
             <router-link
-              :to="{ name: 'listAnimals' }"
+              :to="{name: 'listAnimals'}"
               tag="button"
               class="btn btn-outline-danger btn-lg"
-              ><i class="fas fa-window-close"></i> CANCELAR</router-link
-            >
+            ><i class="fas fa-window-close"></i>  CANCELAR</router-link>
           </form>
         </b-col>
         <b-col cols="2"></b-col>
