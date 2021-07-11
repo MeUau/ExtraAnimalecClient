@@ -1,8 +1,8 @@
 <template>
   <section class="page-section">
-     <b-container>
-      <HeaderPage title="Editar perfil"/>
-   
+    <b-container>
+      <HeaderPage title="Editar perfil" />
+
       <!--FORM-->
       <b-row>
         <b-col cols="2"></b-col>
@@ -46,23 +46,33 @@
             </div>
             <!-- Sponsorship -->
             <div class="form-group">
-              <textarea
-                id="txtSponsorship"
-                class="form-control form-control-lg"
-                placeholder="valor do patrocínio"
+              <label><strong>Valor do patrocínio</strong></label>
+              <input
                 v-model="user.sponsorship"
-              ></textarea>
+                type="text"
+                min="0"
+                onmouseenter="(this.type='number')"
+                onmouseleave="(this.type='text')"
+                class="form-control form-control-lg"
+                id="txtSponsorship"
+                placeholder="Escreva o valor do patrocínio"
+              />
             </div>
             <!-- Expertize -->
+            <label
+              ><strong
+                >Preencher com a especialidade do utilizador</strong
+              ></label
+            >
             <div class="form-group">
               <textarea
                 id="txtExpertize"
                 class="form-control form-control-lg"
                 placeholder="qual a sua especialidade?"
                 cols="30"
-                rows="10"
+                rows="2"
                 v-model="user.expertize"
-              ></textarea>              
+              ></textarea>
             </div>
             <!-- cidade -->
             <div class="form-group">
@@ -107,23 +117,25 @@
               />
             </div>
             <button type="submit" class="btn btn-outline-success btn-lg mr-2">
-              <i class="fas fa-edit"></i> ATUALIZAR</button>
+              <i class="fas fa-edit"></i> ATUALIZAR
+            </button>
             <router-link
-              :to="{name: 'profile'}"
+              :to="{ name: 'profile' }"
               tag="button"
               class="btn btn-outline-danger btn-lg"
-            ><i class="fas fa-window-close"></i> CANCELAR</router-link>
+              ><i class="fas fa-window-close"></i> CANCELAR</router-link
+            >
           </form>
         </b-col>
         <b-col cols="2"></b-col>
       </b-row>
-     </b-container>
+    </b-container>
   </section>
 </template>
 
 <script>
 import { EDIT_USER } from "@/store/users/user.constants";
-import HeaderPage from "@/components/HeaderPage.vue"
+import HeaderPage from "@/components/HeaderPage.vue";
 import router from "@/router";
 import { mapGetters } from "vuex";
 
@@ -144,12 +156,8 @@ export default {
     update() {
       this.$store.dispatch(`user/${EDIT_USER}`, this.$data.user).then(
         () => {
-          this.$alert(
-            this.getMessage,
-            "Perfil atualizado!",
-            "success"
-          );
-          router.push({name: 'profile'});
+          this.$alert(this.getMessage, "Perfil atualizado!", "success");
+          router.push({ name: "profile" });
         },
         err => {
           this.$alert(`${err.message}`, "Erro", "error");

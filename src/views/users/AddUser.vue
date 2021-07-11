@@ -32,25 +32,31 @@
                 <option value="user">UTILIZADOR NORMAL</option>
               </select>
             </div>
-            <!-- Sponsorship -->
+            <!-- resumo bibliografico -->
             <div class="form-group">
               <textarea
-                id="txtSponsorship"
+                id="txtDescription"
                 class="form-control form-control-lg"
-                placeholder="valor do patrocínio"
-                v-model="user.sponsorship"
-              ></textarea>
-            </div>
-            <!-- Expertize -->
-            <div class="form-group">
-              <textarea
-                id="txtExpertize"
-                class="form-control form-control-lg"
-                placeholder="qual a sua especialidade?"
+                placeholder="escreve descrição"
                 cols="30"
                 rows="10"
-                v-model="user.expertize"
+                v-model="description"
+                required
               ></textarea>
+            </div>
+            <!-- Sponsorship -->
+            <div class="form-group">
+              <label><strong>Valor do patrocínio</strong></label>
+              <input
+                v-model="sponsorship"
+                type="text"
+                min="0"
+                onmouseenter="(this.type='number')"
+                onmouseleave="(this.type='text')"
+                class="form-control form-control-lg"
+                id="txtSponsorship"
+                placeholder="Escreva o valor do patrocínio"
+              />
             </div>
             <!-- nascimento -->
             <div class="form-group">
@@ -64,17 +70,6 @@
                 placeholder="escreve data de nascimento"
                 required
               />
-            </div>
-            <!-- nota biografica -->
-            <div class="form-group">
-              <textarea
-                id="txtDescription"
-                class="form-control form-control-lg"
-                placeholder="escreve descrição"
-                cols="30"
-                rows="10"
-                v-model="description"
-              ></textarea>
             </div>
             <!-- cidade -->
             <div class="form-group">

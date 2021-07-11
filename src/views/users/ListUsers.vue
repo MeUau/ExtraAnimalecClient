@@ -154,7 +154,7 @@ export default {
             user.type === "admin" ? "Administrador" : "Utilizador normal"
           } <br>          
           <strong>Expertize:</strong> ${user.expertize}
-          <strong>Sponsordhip:</strong> ${user.sponsorship}
+          <strong>Sponsorship:</strong> ${user.sponsorship}
           <br />          
           <b>Data de registo:</b> ${this.formatDate(
             user.registration_date

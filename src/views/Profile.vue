@@ -68,7 +68,7 @@
                 <h5>Participações especiais</h5>
                 <strong>Expertize:</strong> {{ this.user.expertize }}
                 <br />
-                <strong>Sponsordhip:</strong> {{ this.user.sponsorship }}
+                <strong>Sponsorship:</strong> {{ this.user.sponsorship }}
                 <br />
                 <br />
                 <h5>Gamificação</h5>

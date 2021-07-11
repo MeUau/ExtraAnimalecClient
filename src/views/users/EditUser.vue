@@ -31,26 +31,6 @@
                 <option value="user">UTILIZADOR NORMAL</option>
               </select>
             </div>
-            <!-- Sponsorship -->
-            <div class="form-group">
-              <textarea
-                id="txtSponsorship"
-                class="form-control form-control-lg"
-                placeholder="valor do patrocínio"
-                v-model="user.sponsorship"
-              ></textarea>
-            </div>
-            <!-- Expertize -->
-            <div class="form-group">
-              <textarea
-                id="txtExpertize"
-                class="form-control form-control-lg"
-                placeholder="qual a sua especialidade?"
-                cols="30"
-                rows="10"
-                v-model="user.expertize"
-              ></textarea>
-            </div>
             <!-- nascimento -->
             <div class="form-group">
               <input
@@ -123,6 +103,36 @@
                 id="txtCountry"
                 placeholder="escreve último nível de quiz completo"
               />
+            </div>
+            <!-- Sponsorship -->
+            <div class="form-group">
+              <label><strong>Valor do patrocínio</strong></label>
+              <input
+                v-model="user.sponsorship"
+                type="text"
+                min="0"
+                onmouseenter="(this.type='number')"
+                onmouseleave="(this.type='text')"
+                class="form-control form-control-lg"
+                id="txtSponsorship"
+                placeholder="Escreva o valor do patrocínio"
+              />
+            </div>
+            <!-- Expertize -->
+            <label
+              ><strong
+                >Preencher com a especialidade do utilizador</strong
+              ></label
+            >
+            <div class="form-group">
+              <textarea
+                id="txtExpertize"
+                class="form-control form-control-lg"
+                placeholder="qual a sua especialidade?"
+                cols="30"
+                rows="2"
+                v-model="user.expertize"
+              ></textarea>
             </div>
             <!-- user e password -->
             <div class="form-group">
