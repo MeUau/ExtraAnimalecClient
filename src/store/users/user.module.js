@@ -17,8 +17,7 @@ const state = {
 
 const getters = {
   getUsers: state => state.users,
-  getUsersById: state => id => 
-    state.users.find(user => user._id === id),
+  getUsersById: state => id => state.users.find(user => user._id === id),
   getNameById: state => id => {
     const user = state.users.find(user => user._id === id);
     return user.name;
@@ -35,8 +34,8 @@ const actions = {
           resolve(res);
         },
         err => {
-          commit(SET_MESSAGE, err.message)
-          reject(err)
+          commit(SET_MESSAGE, err.message);
+          reject(err);
         }
       );
     });
