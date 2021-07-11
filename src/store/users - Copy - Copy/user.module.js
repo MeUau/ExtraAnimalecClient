@@ -1,48 +1,49 @@
-import expertService from "@/api/expert.service";
+import userService from "@/api/user.service";
 import {
   // Actions
-  FETCH_EXPERTS,
-  ADD_EXPERT,
-  EDIT_EXPERT,
-  REMOVE_EXPERT,
+  FETCH_USERS,
+  ADD_USER,
+  EDIT_USER,
+  REMOVE_USER,
   // Mutations
-  SET_EXPERTS,
+  SET_USERS,
   SET_MESSAGE
-} from "./expert.constants";
+} from "./user.constants";
 
 const state = {
-  experts: [],
+  users: [],
   message: ""
 };
 
 const getters = {
-  getExperts: state => state.experts,
-  getExpertsById: state => id => state.experts.find(expert => expert._id === id),
+  getUsers: state => state.users,
+  getUsersById: state => id => 
+    state.users.find(user => user._id === id),
   getNameById: state => id => {
-    const expert = state.experts.find(expert => expert._id === id);
-    return expert.name;
+    const user = state.users.find(user => user._id === id);
+    return user.name;
   },
   getMessage: state => state.message
 };
 
 const actions = {
-  [FETCH_EXPERTS]: async ({ commit, rootState }) => {
+  [FETCH_USERS]: async ({ commit, rootState }) => {
     return new Promise((resolve, reject) => {
-      expertService.getExperts(rootState.auth.token).then(
+      userService.getUsers(rootState.auth.token).then(
         res => {
-          commit(SET_EXPERTS, res.body);
+          commit(SET_USERS, res.body);
           resolve(res);
         },
         err => {
-          commit(SET_MESSAGE, err.message);
-          reject(err);
+          commit(SET_MESSAGE, err.message)
+          reject(err)
         }
       );
     });
   },
-  [ADD_EXPERT]: ({ commit, rootState }, payload) => {
+  [ADD_USER]: ({ commit, rootState }, payload) => {
     return new Promise((resolve, reject) => {
-      expertService.addExpert(rootState.auth.token, payload).then(
+      userService.addUser(rootState.auth.token, payload).then(
         res => {
           commit(
             SET_MESSAGE,
@@ -54,9 +55,9 @@ const actions = {
       );
     });
   },
-  [EDIT_EXPERT]: ({ commit, rootState }, payload) => {
+  [EDIT_USER]: ({ commit, rootState }, payload) => {
     return new Promise((resolve, reject) => {
-      expertService.editExpert(rootState.auth.token, payload).then(
+      userService.editUser(rootState.auth.token, payload).then(
         res => {
           commit(
             SET_MESSAGE,
@@ -68,9 +69,9 @@ const actions = {
       );
     });
   },
-  [REMOVE_EXPERT]: ({ commit, rootState }, id) => {
+  [REMOVE_USER]: ({ commit, rootState }, id) => {
     return new Promise((resolve, reject) => {
-      expertService.removeExpert(rootState.auth.token, id).then(
+      userService.removeUser(rootState.auth.token, id).then(
         res => {
           commit(SET_MESSAGE, `O utilizador foi removido com sucesso!`);
           resolve(res);
@@ -82,8 +83,8 @@ const actions = {
 };
 
 export const mutations = {
-  [SET_EXPERTS]: (state, experts) => {
-    state.experts = experts;
+  [SET_USERS]: (state, users) => {
+    state.users = users;
   },
   [SET_MESSAGE]: (state, message) => {
     state.message = message;
